@@ -13,6 +13,13 @@
         </div>
         <script>
             const mask = document.querySelector(".mask");
+            if(window.innerHeight > window.innerWidth) {
+                mask.style.width = window.innerWidth;
+                mask.style.height = mask.offsetWidth;
+            } else {
+                mask.style.height = window.innerHeight;
+                mask.style.width = mask.offsetHeight;
+            }
             mask.style.height = window.innerHeight;
             mask.style.width = mask.offsetHeight;
             const classList = [
