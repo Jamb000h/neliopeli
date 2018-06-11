@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="controls-wrapper">
+            <span class="timer"></span>
+        </div>
+        <div class="mask">
+            <div class="wrapper">
+    
+            </div>
+        </div>
+        <script>
+            const classList = [
+                "lightGrey",
+                "darkGrey",
+                "lightPurple",
+                "darkPurple"
+            ]
+            const arvolliset = [];
+            let itemsAdded = 0;
+            let intervalID = 0;
+            let running = false;
+            for(let i = 1; i <= 5*5; i++) {
+                const wrapper = document.querySelector(".wrapper");
+                const div = document.createElement("div");
+                const random = Math.floor(Math.random() * classList.length);
+                div.classList = "node " + classList[random];
+                const random2 = Math.round(Math.random());
+                if(random2 == 1) {
+                    const span = document.createElement("span");
+                    span.innerHTML = itemsAdded;
+                    arvolliset[itemsAdded] = 0;
+                    const a = itemsAdded;
+                    div.appendChild(span);
+                    div.addEventListener('mouseup', function() {
+                        if(!running) {
+                            startTimer();
+                        }
+                        arvolliset[a] = 1;
+                        tarkista();
+                    })
+                    itemsAdded++;
+                }
+                wrapper.appendChild(div);
+            }
+
+            function tarkista() {
+                console.log(arvolliset);
+                for(let i = 0; i < arvolliset.length; i++) {
+                    if(arvolliset[i] === 0) {
+                        return;
+                    }
+                }
+
+                window.clearInterval(intervalID);
+                running = false;
+            }
+
+            function startTimer() {
+                running = true;
+                const alkuaika = Date.now();
+                const span = document.querySelector(".timer");
+                intervalID = setInterval(function(){ 
+                    const nykyaika = Date.now();
+                    span.innerHTML = (nykyaika - alkuaika) / 1000 + "s";
+                 }, 50);
+            }
+        </script>
+    </body>
+</html>
