@@ -53,7 +53,7 @@
     -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
     transform: translateZ(0);
-    transition: .3s all;
+    /*transition: .3s all;*/
     font-weight: bold;
     outline: none;
 }
