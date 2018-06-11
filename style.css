@@ -31,14 +31,14 @@
     position: absolute;
     transform: rotate(-45deg);
     top: 14.65%;
-    left: 14.65%;
+    left: 15.65%;
 }
 
 .node {
     border: 2px solid white;
     height: calc(20% - 2px);
     width: calc(20% - 2px);
-    background-color: black;
+    background-color: white;
     margin: 0;
     padding: 0;
     color: white;
@@ -55,6 +55,7 @@
     transform: translateZ(0);
     transition: .3s all;
     font-weight: bold;
+    outline: none;
 }
 
 .node:hover {
