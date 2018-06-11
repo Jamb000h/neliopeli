@@ -12,6 +12,9 @@
             </div>
         </div>
         <script>
+            const mask = document.querySelector(".mask");
+            mask.style.height = window.innerHeight;
+            mask.style.width = mask.offsetHeight;
             const classList = [
                 "lightGrey",
                 "darkGrey",
@@ -64,7 +67,7 @@
                 const span = document.querySelector(".timer");
                 intervalID = setInterval(function(){ 
                     const nykyaika = Date.now();
-                    span.innerHTML = (nykyaika - alkuaika) / 1000 + "s";
+                    span.innerHTML = ((nykyaika - alkuaika) / 1000).toFixed(3) + "s";
                  }, 50);
             }
         </script>
